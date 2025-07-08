@@ -2,6 +2,6 @@
 
 #include "debug.h"
 
-void SimulatePwmTimerISR(void);
-void SimulatePwmSetPeriod(u16 period);
-void SimulatePwmSetHigh(u16 high);
+void SoftPwmTimerISR(void);
+void SoftPwmSetPeriod(u16 period);
+void SoftPwmSetHigh(u16 high);

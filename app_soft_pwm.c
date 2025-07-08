@@ -10,7 +10,7 @@ static void set_pwm_gpio(u8 gpio_state)	//设置用于模拟pwm的gpio电平
 	if(gpio_state == 0) GPIO_WriteBit(GPIOC, GPIO_Pin_7, Bit_RESET);
 }
 
-void SimulatePwmTimerISR(void)		//用在定时器中断里
+void SoftPwmTimerISR(void)		//用在定时器中断里
 {
     g_pwm_cnt++;
 
@@ -29,7 +29,7 @@ void SimulatePwmTimerISR(void)		//用在定时器中断里
 	}
 }
 
-void SimulatePwmSetPeriod(u16 period)
+void SoftPwmSetPeriod(u16 period)
 {
     //限制最小周期为1，避免除零错误
     if (period == 0) period = 1;
@@ -37,7 +37,7 @@ void SimulatePwmSetPeriod(u16 period)
     g_pwm_period = period;
 }
 
-void SimulatePwmSetHigh(u16 high)
+void SoftPwmSetHigh(u16 high)
 {
     //高电平时间不超过周期
     g_pwm_high = (high > g_pwm_period) ? g_pwm_period : high;
