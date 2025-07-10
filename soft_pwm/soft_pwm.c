@@ -1,4 +1,4 @@
-#include "app_soft_pwm.h"
+#include "soft_pwm.h"
 
 volatile u16 g_pwm_period = 1000;  	//默认周期（假设定时器中断间隔1ms，总周期1秒）
 volatile u16 g_pwm_cnt = 0;
